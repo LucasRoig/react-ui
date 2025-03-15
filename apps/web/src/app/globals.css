@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--color-white);
+  --header-height: calc(var(--spacing) * 14);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
