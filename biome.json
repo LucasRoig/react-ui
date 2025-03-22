@@ -47,7 +47,8 @@
       "**/generated/**",
       "**/.contentlayer/**",
       "**/coverage/**",
-      "packages/database/src/drizzle/**"
+      "packages/database/src/drizzle/**",
+      "**/.content-collections/**"
     ]
   }
 }
