@@ -5,9 +5,7 @@ export function Header() {
     <div className="flex px-4 items-center h-full border-b border-gray-100">
       <div className="flex items-center gap-4 mr-6">
         <Link href="/">
-          <span className="font-bold">
-            ui
-          </span>
+          <span className="font-bold">ui</span>
         </Link>
         <nav className="flex gap-2 text-sm">
           <Link href="/components">Components</Link>
@@ -16,5 +14,5 @@ export function Header() {
         </nav>
       </div>
     </div>
-  )
+  );
 }
