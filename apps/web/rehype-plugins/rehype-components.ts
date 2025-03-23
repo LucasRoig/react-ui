@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
 import type { UnistNode, UnistTree } from "./unist-types";
@@ -21,13 +22,13 @@ export function rehypeComponent() {
           // const src = component.files[0]?.path
 
           // Read the source file.
-          // const filePath = src
-          let source = `
-              export default test() {
-                return <div>Hello world</div>
-              }
-            `;
-          // let source = fs.readFileSync(filePath, "utf8")
+          const filePath = "./src/app/(component-preview)/preview/button/page.tsx";
+          // let source = `
+          //     export default test() {
+          //       return <div>Hello world</div>
+          //     }
+          //   `;
+          let source = fs.readFileSync(filePath, "utf8");
 
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
