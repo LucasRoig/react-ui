@@ -25,7 +25,7 @@ function NavLink({
 }>) {
   return (
     <Link
-      className="pl-5 text-sm text-muted-foreground-dark border-l border-transparent hover:text-dark-foreground hover:border-black -mx-px"
+      className="pl-5 text-sm text-muted-foreground-dark border-l border-transparent hover:text-foreground hover:border-black -mx-px"
       href={href}
     >
       {children}
