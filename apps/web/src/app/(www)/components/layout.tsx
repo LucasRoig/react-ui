@@ -14,7 +14,7 @@ export default function ComponentLayout({
           </aside>
         </div>
       </div>
-      <main>{children}</main>
+      <main className="pt-10 px-10">{children}</main>
     </div>
   );
 }

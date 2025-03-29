@@ -21,18 +21,22 @@ export default async function ComponentPage({ params }: Readonly<{ params: Promi
                   <TabsTrigger value="preview">Preview</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
                 </TabsList>
-                <TabsContent value="preview">
-                  <iframe
-                    title="preview"
-                    src={"/preview/button"}
-                    height={800}
-                    className="relative z-20 w-full bg-background"
-                    // onLoad={() => {
-                    //   setIsLoading(false);
-                    // }}
-                  />
-                </TabsContent>
-                <TabsContent value="code">{props.children}</TabsContent>
+                <div className="border rounded-md overflow-hidden mt-4">
+                  <TabsContent value="preview">
+                    <iframe
+                      title="preview"
+                      src={"/preview/button"}
+                      height={500}
+                      className="relative z-20 w-full bg-background"
+                      // onLoad={() => {
+                      //   setIsLoading(false);
+                      // }}
+                    />
+                  </TabsContent>
+                  <TabsContent value="code" className="[&_pre]:p-4">
+                    {props.children}
+                  </TabsContent>
+                </div>
               </Tabs>
             );
           },
