@@ -3,6 +3,7 @@ import { allComponents } from "content-collections";
 import { Monitor, Smartphone, Tablet } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../../@components/tabs";
 import { ToggleGroup, ToggleGroupItem } from "../../../../@components/toggle-group";
+import { Webview } from "../_components/webview";
 
 export default async function ComponentPage({ params }: Readonly<{ params: Promise<{ slug: string }> }>) {
   const { slug } = await params;
@@ -39,15 +40,7 @@ export default async function ComponentPage({ params }: Readonly<{ params: Promi
                 </div>
                 <div className="border rounded-md overflow-hidden mt-4">
                   <TabsContent value="preview">
-                    <iframe
-                      title="preview"
-                      src={"/preview/button"}
-                      height={500}
-                      className="relative z-20 w-full bg-background"
-                      // onLoad={() => {
-                      //   setIsLoading(false);
-                      // }}
-                    />
+                    <Webview title="preview" src={"/preview/button"} className="relative z-20 w-full bg-background" />
                   </TabsContent>
                   <TabsContent value="code" className="[&_pre]:p-4">
                     {props.children}
