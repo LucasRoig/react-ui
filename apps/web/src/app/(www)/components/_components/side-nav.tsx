@@ -1,5 +1,5 @@
 import { allComponents } from "content-collections";
-import Link from "next/link";
+import { NavLink } from "./nav-link";
 
 function NavBlock({
   title,
@@ -13,23 +13,6 @@ function NavBlock({
       <h3 className="uppercase text-xs/6 font-mono font-medium text-muted-foreground tracking-widest">{title}</h3>
       <ul className="flex flex-col gap-2 border-l border-gray-200">{children}</ul>
     </div>
-  );
-}
-
-function NavLink({
-  href,
-  children,
-}: Readonly<{
-  href: string;
-  children: React.ReactNode;
-}>) {
-  return (
-    <Link
-      className="pl-5 text-sm text-muted-foreground-dark border-l border-transparent hover:text-foreground hover:border-black -mx-px"
-      href={href}
-    >
-      {children}
-    </Link>
   );
 }
 
