@@ -1,6 +1,8 @@
 import { MDXContent } from "@content-collections/mdx/react";
 import { allComponents } from "content-collections";
+import { Monitor, Smartphone, Tablet } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../../@components/tabs";
+import { ToggleGroup, ToggleGroupItem } from "../../../../@components/toggle-group";
 
 export default async function ComponentPage({ params }: Readonly<{ params: Promise<{ slug: string }> }>) {
   const { slug } = await params;
@@ -17,10 +19,24 @@ export default async function ComponentPage({ params }: Readonly<{ params: Promi
           ComponentPreview: (props: { children: React.ReactNode }) => {
             return (
               <Tabs defaultValue="preview">
-                <TabsList>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                  <TabsTrigger value="code">Code</TabsTrigger>
-                </TabsList>
+                <div className="flex items-center justify-between">
+                  <TabsList>
+                    <TabsTrigger value="preview">Preview</TabsTrigger>
+                    <TabsTrigger value="code">Code</TabsTrigger>
+                  </TabsList>
+
+                  <ToggleGroup type="single">
+                    <ToggleGroupItem value="fullwidth">
+                      <Monitor />
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="tablet">
+                      <Tablet />
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="smartphone">
+                      <Smartphone />
+                    </ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
                 <div className="border rounded-md overflow-hidden mt-4">
                   <TabsContent value="preview">
                     <iframe
