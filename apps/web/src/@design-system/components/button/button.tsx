@@ -2,27 +2,41 @@ import { type VariantProps, tv } from "tailwind-variants";
 
 const buttonVariants = tv({
   base: `inline-flex items-center justify-center gap-2
-         bg-(--btn-bg)
+         border border-transparent
+         py-1.5 px-3
+         cursor-pointer
          whitespace-nowrap rounded-md
-         text-sm font-medium text-(--btn-fg)
+         text-sm/6 font-semibold
          ring-offset-background transition-colors
          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
          disabled:pointer-events-none disabled:opacity-50
          [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0`,
   variants: {
-    color: {
-      primary: "[--btn-bg:theme(--color-red-500/95%)] [--btn-fg:var(--color-blue-500)]",
-      secondary: "[--btn-bg:theme(--color-secondary/95%)] [--btn-fg:var(--color-secondary-fg)]",
+    variant: {
+      primary: "bg-neutral-950 text-white hover:bg-neutral-800",
+      secondary: "border-neutral-300 text-neutral-950 hover:bg-neutral-100",
+      text: "hover:bg-neutral-100",
+    },
+    disabled: {
+      true: "pointer-events-none",
+    },
+    size: {
+      large: "",
+      default: "",
+      small: "",
     },
   },
   defaultVariants: {
-    color: "primary",
+    variant: "primary",
+    size: "default",
+    disabled: false,
   },
 });
 
 type ButtonVariantsProps = VariantProps<typeof buttonVariants>;
+
 type ButtonProps = React.ComponentProps<"button"> & ButtonVariantsProps;
 
-export function Button({ className, color, ...props }: ButtonProps) {
-  return <button className={buttonVariants({ color })} {...props} />;
+export function Button({ className, variant, disabled, size, ...props }: ButtonProps) {
+  return <button className={buttonVariants({ variant, className, size, disabled })} disabled={disabled} {...props} />;
 }

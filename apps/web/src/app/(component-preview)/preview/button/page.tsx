@@ -2,15 +2,15 @@ import { Button } from "../../../../@design-system/components/button/button";
 
 export default function ButtonPreview() {
   return (
-    <div className="flex flex-col gap-2">
-      <Button type="button" color="primary" className="btn btn-primary">
+    <div className="flex gap-4">
+      <Button type="button" variant="primary" className="btn btn-primary">
         Primary
       </Button>
-      <Button type="button" className="btn btn-secondary">
+      <Button type="button" variant="secondary" className="btn btn-secondary">
         Secondary
       </Button>
-      <Button type="button" className="btn btn-outline">
-        Outline
+      <Button type="button" variant="text" className="btn btn-outline">
+        Tertiary
       </Button>
     </div>
   );

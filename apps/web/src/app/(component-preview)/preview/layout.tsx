@@ -2,8 +2,7 @@ export default function PreviewLayout({ children }: Readonly<{ children: React.R
   return (
     <main
       style={{
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
+        padding: "1rem",
       }}
     >
       {children}
