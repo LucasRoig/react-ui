@@ -9,6 +9,7 @@ import { Webview } from "./webview";
 
 export type ComponentPreviewProps = Readonly<{
   children: React.ReactNode;
+  url: string;
 }>;
 
 export function ComponentPreview(props: ComponentPreviewProps) {
@@ -37,7 +38,7 @@ export function ComponentPreview(props: ComponentPreviewProps) {
         <TabsContent value="preview" className="bg-gray-100">
           <Webview
             title="preview"
-            src={"/preview/button"}
+            src={props.url}
             className={cn(
               "relative z-20 w-full bg-background",
               size === "tablet" && "w-xl border-r",
@@ -45,7 +46,7 @@ export function ComponentPreview(props: ComponentPreviewProps) {
             )}
           />
         </TabsContent>
-        <TabsContent value="code" className="[&_pre]:p-4">
+        <TabsContent value="code" className="[&_pre]:p-4 [&_pre]:overflow-auto">
           {props.children}
         </TabsContent>
       </div>

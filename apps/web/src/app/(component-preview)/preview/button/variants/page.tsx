@@ -1,4 +1,4 @@
-import { Button } from "../../../../@design-system/components/button/button";
+import { Button } from "../../../../../@design-system/components/button/button";
 
 export default function ButtonPreview() {
   return (

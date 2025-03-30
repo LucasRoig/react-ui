@@ -11,9 +11,27 @@ export function rehypeComponent() {
     visit(tree, (node: UnistNode) => {
       if (node.name === "ComponentPreview") {
         const name = getNodeAttributeByName(node, "name")?.value as string;
-
+        const file = getNodeAttributeByName(node, "file")?.value as string;
+        const url = getNodeAttributeByName(node, "url")?.value as string;
         if (!name) {
-          return null;
+          const errorMsg = "Error parsing ComponentPreview: name attribute is required";
+          console.error(errorMsg);
+          throw new Error(errorMsg);
+        }
+        if (!file) {
+          const errorMsg = `Error parsing ComponentPreview ${name}: file attribute is required`;
+          console.error(errorMsg);
+          throw new Error(errorMsg);
+        }
+        if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+          const errorMsg = `Error parsing ComponentPreview ${name}: file ${file} does not exist`;
+          console.error(errorMsg);
+          throw new Error(errorMsg);
+        }
+        if (!url) {
+          const errorMsg = `Error parsing ComponentPreview ${name}: url attribute is required`;
+          console.error(errorMsg);
+          throw new Error(errorMsg);
         }
 
         try {
@@ -22,13 +40,12 @@ export function rehypeComponent() {
           // const src = component.files[0]?.path
 
           // Read the source file.
-          const filePath = "./src/app/(component-preview)/preview/button/page.tsx";
           // let source = `
           //     export default test() {
           //       return <div>Hello world</div>
           //     }
           //   `;
-          let source = fs.readFileSync(filePath, "utf8");
+          let source = fs.readFileSync(file, "utf8");
 
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.

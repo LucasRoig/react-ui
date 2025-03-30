@@ -14,9 +14,9 @@ export default async function ComponentPage({ params }: Readonly<{ params: Promi
       <MDXContent
         code={component.mdx}
         components={{
-          ComponentPreview: ({ children }: { children: React.ReactNode }) => (
+          ComponentPreview: ({ children, url }: { children: React.ReactNode; url: string }) => (
             <div className="mb-6">
-              <ComponentPreview>{children}</ComponentPreview>
+              <ComponentPreview url={url}>{children}</ComponentPreview>
             </div>
           ),
           h1: ({ children }: { children: React.ReactNode }) => <Title.H1 className="mb-8  ">{children}</Title.H1>,
