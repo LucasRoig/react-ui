@@ -1,0 +1,24 @@
+{
+  "name": "@repo/database",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest --typecheck run"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.41.0",
+    "drizzle-zod": "^0.7.1",
+    "ts-pattern": "^5.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "prisma": "^6.6.0",
+    "prisma-generator-drizzle": "^0.7.6",
+    "vitest": "^3.1.1"
+  },
+  "volta": {
+    "node": "22.12.0"
+  }
+}
