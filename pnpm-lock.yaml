@@ -124,9 +124,15 @@ importers:
         specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../database
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.13.9
+        version: 22.13.9
       prisma:
         specifier: ^6.6.0
         version: 6.6.0(typescript@5.8.2)
